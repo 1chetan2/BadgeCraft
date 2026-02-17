@@ -14,24 +14,24 @@ namespace BadgeCraft_Net.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AppDbContext _context;
-       private readonly TokenService _jwt;
+        private readonly TokenService _jwt;
 
         public AuthController(AppDbContext context, TokenService jwt)
         {
             _context = context;
-            _jwt = jwt;
-        }
-
+            _jwt = jwt;     
+        }       
+                                                              
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
-        {
+        {                                                           
             if (_context.Users.Any(x => x.Email == dto.Email))
                 return BadRequest("Email already exists");
-
+                                                            
             var org = new Organization { Name = dto.OrganizationName };
             _context.Organizations.Add(org);
             await _context.SaveChangesAsync();
-
+                                                 
             var user = new User
             {
                 Email = dto.Email,
@@ -49,27 +49,27 @@ namespace BadgeCraft_Net.Controllers
         [HttpPost("login")]
         public IActionResult Login(LoginDto dto)
         {
-            var user = _context.Users.FirstOrDefault(x => x.Email == dto.Email);
+            var user = _context.Users.FirstOrDefault(x => x.Email == dto.Email);        
 
-            if (user == null)
+            if (user == null)                                                                   
                 return Unauthorized();
 
-            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))     
                 return Unauthorized();
 
-            var token = _jwt.GenerateToken(user);
+            var token = _jwt.GenerateToken(user);   
 
-            return Ok(new { token });
+            return Ok(new { token });   
         }
 
-        [Authorize]
         [HttpGet("me")]
         public IActionResult Me()
         {
-            return Ok(User.Claims.Select(c => new { c.Type, c.Value }));
+            var header = Request.Headers["Authorization"].ToString();
+            return Ok(new { header });
         }
 
 
-    }
 
+    }
 }
