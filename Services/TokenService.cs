@@ -41,5 +41,6 @@ namespace BadgeCraft_Net.Services
                                 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

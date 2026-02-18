@@ -3,8 +3,9 @@ using BadgeCraft_Net.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -61,6 +62,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
+    options.MapInboundClaims = false;
     var config = builder.Configuration;
 
     options.TokenValidationParameters = new TokenValidationParameters
@@ -72,7 +74,10 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = config["Jwt:Issuer"],
         ValidAudience = config["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(config["Jwt:Key"]))
+            Encoding.UTF8.GetBytes(config["Jwt:Key"])),
+
+        RoleClaimType = ClaimTypes.Role
+
     };
 });
 

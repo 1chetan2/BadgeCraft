@@ -139,5 +139,4 @@ C:\Asp.net_task\BadgeCraft_Net\Badgecraft_Net\bin\Debug\net8.0\runtimes\win\lib\
 C:\Asp.net_task\BadgeCraft_Net\Badgecraft_Net\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Asp.net_task\BadgeCraft_Net\BadgeCraft_Net\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Asp.net_task\BadgeCraft_Net\BadgeCraft_Net\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Asp.net_task\BadgeCraft_Net\BadgeCraft_Net\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Asp.net_task\BadgeCraft_Net\BadgeCraft_Net\obj\Debug\net8.0\BadgeCraft_Net.sourcelink.json
