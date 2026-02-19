@@ -10,5 +10,8 @@ namespace BadgeCraft_Net.Data
 
         public DbSet<User> Users => Set<User>();
         public DbSet<Organization> Organizations => Set<Organization>();
+
+        public DbSet<BadgeTemplate> BadgeTemplates { get; set; }
+
     }
 }

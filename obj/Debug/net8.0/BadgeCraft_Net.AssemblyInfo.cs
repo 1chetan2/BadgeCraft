@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BadgeCraft_Net")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96a6976117013c7e04106a15b455dd36282c7ffa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ac53e77de978027619b949a8994b14299339fb8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BadgeCraft_Net")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BadgeCraft_Net")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

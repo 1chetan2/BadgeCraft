@@ -22,7 +22,7 @@ namespace BadgeCraft_Net.Services
 
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim("organizationId", user.OrganizationId.ToString()),
+            new Claim("OrganizationId", user.OrganizationId.ToString()),
             new Claim(ClaimTypes.Role, user.Role)
 
         };

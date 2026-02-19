@@ -42,7 +42,70 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BadgeCraft_Net.Controllers.UsersController",
+    "ContainingType": "BadgeCraft_Net.Controllers.BadgeTemplatesController",
+    "Method": "GetAll",
+    "RelativePath": "api/BadgeTemplates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BadgeCraft_Net.Controllers.BadgeTemplatesController",
+    "Method": "Create",
+    "RelativePath": "api/BadgeTemplates",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BadgeCraft_Net.DTOs.CreateBadgeTemplateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BadgeCraft_Net.Controllers.BadgeTemplatesController",
+    "Method": "Update",
+    "RelativePath": "api/BadgeTemplates/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "BadgeCraft_Net.DTOs.UpdateBadgeTemplateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BadgeCraft_Net.Controllers.BadgeTemplatesController",
+    "Method": "Delete",
+    "RelativePath": "api/BadgeTemplates/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
     "Method": "GetUsers",
     "RelativePath": "api/Users",
     "HttpMethod": "GET",
@@ -52,7 +115,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BadgeCraft_Net.Controllers.UsersController",
+    "ContainingType": "UsersController",
     "Method": "Create",
     "RelativePath": "api/Users",
     "HttpMethod": "POST",
@@ -68,7 +131,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BadgeCraft_Net.Controllers.UsersController",
+    "ContainingType": "UsersController",
     "Method": "Update",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "PUT",
@@ -89,7 +152,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BadgeCraft_Net.Controllers.UsersController",
+    "ContainingType": "UsersController",
     "Method": "Delete",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "DELETE",
@@ -105,7 +168,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BadgeCraft_Net.Controllers.UsersController",
+    "ContainingType": "UsersController",
     "Method": "ClaimsDebug",
     "RelativePath": "api/Users/claims",
     "HttpMethod": "GET",

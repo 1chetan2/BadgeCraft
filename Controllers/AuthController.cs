@@ -27,19 +27,19 @@ namespace BadgeCraft_Net.Controllers
         {                                                           
             if (_context.Users.Any(x => x.Email == dto.Email))
                 return BadRequest("Email already exists");
-                                                            
-            var org = new Organization { Name = dto.OrganizationName };
-            _context.Organizations.Add(org);
-            await _context.SaveChangesAsync();
-                                                 
+                                                                                                                                           
+            var org = new Organization { Name = dto.OrganizationName };     
+            _context.Organizations.Add(org);                                    
+            await _context.SaveChangesAsync();      
+                                                                                                  
             var user = new User
-            {
-                Email = dto.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+            {                                                                 
+                Email = dto.Email,                               
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),                                      
                 OrganizationId = org.Id,
-                Role = "OrgAdmin"
+                Role = "OrgAdmin"           
             };
-
+                                                                                            
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
@@ -50,7 +50,7 @@ namespace BadgeCraft_Net.Controllers
         public IActionResult Login(LoginDto dto)
         {
             var user = _context.Users.FirstOrDefault(x => x.Email == dto.Email);        
-
+                
             if (user == null)                                                                   
                 return Unauthorized();
 
