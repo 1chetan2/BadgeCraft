@@ -14,6 +14,7 @@ namespace BadgeCraft_Net.Controllers
     [ApiController]
     public class BadgeTemplatesController : ControllerBase
     {
+
         private readonly AppDbContext _context;
 
         public BadgeTemplatesController(AppDbContext context)
@@ -28,9 +29,9 @@ namespace BadgeCraft_Net.Controllers
 
             if (orgClaim == null)
                 throw new UnauthorizedAccessException("OrganizationId claim missing");
+
             return int.Parse(orgClaim.Value);
         }
-        
 
         //  GET ALL (Admin + User)
         [HttpGet]
@@ -62,6 +63,7 @@ namespace BadgeCraft_Net.Controllers
 
             _context.BadgeTemplates.Add(template);
             await _context.SaveChangesAsync();
+
             return Ok(template);
         }
 
@@ -71,6 +73,7 @@ namespace BadgeCraft_Net.Controllers
         public async Task<IActionResult> Update(int id, UpdateBadgeTemplateDto dto)
         {
             var orgId = GetOrgId();
+
             var template = await _context.BadgeTemplates
                 .FirstOrDefaultAsync(t =>
                     t.Id == id &&
@@ -84,9 +87,10 @@ namespace BadgeCraft_Net.Controllers
             template.ImageUrl = dto.ImageUrl;
 
             await _context.SaveChangesAsync();
+
             return Ok(template);
         }
-        
+
         //  DELETE (Admin Only)
         [Authorize(Roles = "OrgAdmin")]
         [HttpDelete("{id}")]
