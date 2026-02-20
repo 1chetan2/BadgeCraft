@@ -13,5 +13,7 @@ namespace BadgeCraft_Net.Data
 
         public DbSet<BadgeTemplate> BadgeTemplates { get; set; }
 
+        public DbSet<Badge> Badges { get; set; }
+
     }
 }

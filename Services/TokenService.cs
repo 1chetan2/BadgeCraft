@@ -19,12 +19,11 @@ namespace BadgeCraft_Net.Services
         {
             var claims = new[]
             {
-
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
             new Claim("OrganizationId", user.OrganizationId.ToString()),
             new Claim(ClaimTypes.Role, user.Role)
-
+            
         };
                                                                             
             var key = new SymmetricSecurityKey(
