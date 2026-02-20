@@ -1,18 +1,18 @@
 using BadgeCraft_Net.Data;
 using BadgeCraft_Net.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -47,13 +47,17 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
-
 // Define DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<TokenService>();
+
+//for csv file
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 10485760; // 10MB
+});
 
 builder.Services.AddAuthentication(options =>
 {
@@ -94,9 +98,6 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -107,8 +108,8 @@ if (app.Environment.IsDevelopment())
 }                                                   
 app.UseHttpsRedirection();
 app.UseCors("react");
-
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 app.MapControllers();
 app.Run();
