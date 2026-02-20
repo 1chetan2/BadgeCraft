@@ -79,6 +79,69 @@
         }
       }
     },
+    "/api/Badges": {
+      "post": {
+        "tags": [
+          "Badges"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Subtitle": {
+                    "type": "string"
+                  },
+                  "BgColor": {
+                    "type": "string"
+                  },
+                  "TextColor": {
+                    "type": "string"
+                  },
+                  "OrganizationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Logo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Subtitle": {
+                  "style": "form"
+                },
+                "BgColor": {
+                  "style": "form"
+                },
+                "TextColor": {
+                  "style": "form"
+                },
+                "OrganizationId": {
+                  "style": "form"
+                },
+                "Logo": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/BadgeTemplates": {
       "get": {
         "tags": [
@@ -175,6 +238,50 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Csv/upload": {
+      "post": {
+        "tags": [
+          "Csv"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Organizations": {
+      "get": {
+        "tags": [
+          "Organizations"
         ],
         "responses": {
           "200": {

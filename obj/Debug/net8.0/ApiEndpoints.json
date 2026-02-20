@@ -42,6 +42,47 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BadgeCraft_Net.Controllers.BadgesController",
+    "Method": "CreateBadge",
+    "RelativePath": "api/Badges",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Subtitle",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BgColor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextColor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrganizationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Logo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BadgeCraft_Net.Controllers.BadgeTemplatesController",
     "Method": "GetAll",
     "RelativePath": "api/BadgeTemplates",
@@ -102,6 +143,32 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BadgeCraft_Net.Controllers.CsvController",
+    "Method": "UploadCsv",
+    "RelativePath": "api/Csv/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BadgeCraft_Net.Controllers.OrganizationsController",
+    "Method": "GetOrganizations",
+    "RelativePath": "api/Organizations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
